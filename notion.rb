@@ -5,9 +5,8 @@
 class Notion < Formula
   desc "Powerful command-line interface for Notion built with pure bash"
   homepage "https://github.com/nitaiaharoni1/notion-cli"
-  url "https://github.com/nitaiaharoni1/notion-cli/archive/refs/heads/main.tar.gz"
-  version "1.0.0"
-  sha256 "placeholder_sha256_will_be_updated_on_release"
+  url "https://github.com/nitaiaharoni1/notion-cli/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "7e6bda35e486970f466ef6aacc463e76fa3459f0b551b096318ba9dfcedb589e"
   license "MIT"
   head "https://github.com/nitaiaharoni1/notion-cli.git", branch: "main"
 
