@@ -7,7 +7,7 @@ class JiraCliEnhanced < Formula
   homepage "https://github.com/nitaiaharoni1/jira-cli-enhanced"
   url "https://github.com/nitaiaharoni1/jira-cli-enhanced/archive/refs/tags/v1.7.1.tar.gz"
   version "1.7.1"
-  sha256 "" # Will be calculated after release
+  sha256 "2f538186f23c347cc37c3b66ba18a6594c220237805aa7b4258a51451a9d7645"
   license "MIT"
   head "https://github.com/nitaiaharoni1/jira-cli-enhanced.git", branch: "main"
 
