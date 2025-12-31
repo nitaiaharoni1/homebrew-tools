@@ -4,12 +4,12 @@
 
 class Jira < Formula
   desc "Enhanced Jira CLI with attachments, comments, worklogs, history, and unwatch operations"
-  homepage "https://github.com/nitaiaharoni1/jira-cli-enhanced"
-  url "https://github.com/nitaiaharoni1/jira-cli-enhanced/archive/refs/tags/v1.7.2.tar.gz"
+  homepage "https://github.com/nitaiaharoni1/jira"
+  url "https://github.com/nitaiaharoni1/jira/archive/refs/tags/v1.7.2.tar.gz"
   version "1.7.2"
   sha256 "8c68cfd268b02aa66abfc1d22b76ac93976ac73ac8ffa8f7f5460006525794ad"
   license "MIT"
-  head "https://github.com/nitaiaharoni1/jira-cli-enhanced.git", branch: "main"
+  head "https://github.com/nitaiaharoni1/jira.git", branch: "main"
 
   depends_on "go" => :build
 
