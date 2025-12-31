@@ -5,9 +5,9 @@
 class JiraCliEnhanced < Formula
   desc "Enhanced Jira CLI with attachments, comments, worklogs, history, and unwatch operations"
   homepage "https://github.com/nitaiaharoni1/jira-cli-enhanced"
-  url "https://github.com/nitaiaharoni1/jira-cli-enhanced/archive/refs/tags/v1.7.1.tar.gz"
-  version "1.7.1"
-  sha256 "2f538186f23c347cc37c3b66ba18a6594c220237805aa7b4258a51451a9d7645"
+  url "https://github.com/nitaiaharoni1/jira-cli-enhanced/archive/refs/tags/v1.7.2.tar.gz"
+  version "1.7.2"
+  sha256 "8c68cfd268b02aa66abfc1d22b76ac93976ac73ac8ffa8f7f5460006525794ad"
   license "MIT"
   head "https://github.com/nitaiaharoni1/jira-cli-enhanced.git", branch: "main"
 
@@ -37,6 +37,7 @@ class JiraCliEnhanced < Formula
       - Issue history/changelog
       - Unwatch operations
       - Bulk operations (assign, move)
+      - Fixed original estimate updates (v1.7.2)
     EOS
   end
 end
