@@ -1,8 +1,8 @@
 # Homebrew formula for Enhanced Jira CLI
-# Formula name: jira-cli-enhanced
+# Formula name: jira
 # Tap: nitaiaharoni1
 
-class JiraCliEnhanced < Formula
+class Jira < Formula
   desc "Enhanced Jira CLI with attachments, comments, worklogs, history, and unwatch operations"
   homepage "https://github.com/nitaiaharoni1/jira-cli-enhanced"
   url "https://github.com/nitaiaharoni1/jira-cli-enhanced/archive/refs/tags/v1.7.2.tar.gz"
