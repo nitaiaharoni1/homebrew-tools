@@ -5,9 +5,9 @@
 class Jira < Formula
   desc "Enhanced Jira CLI with statistics, bulk operations, attachments, comments, worklogs, and more"
   homepage "https://github.com/nitaiaharoni1/jira-cli"
-  url "https://github.com/nitaiaharoni1/jira-cli/archive/refs/tags/v1.8.5.tar.gz"
-  version "1.8.5"
-  sha256 "19a0a516db8050b10017f1195239902be92c27bb1a49d3fb01031ab68eeea831"
+  url "https://github.com/nitaiaharoni1/jira-cli/archive/refs/tags/v1.8.6.tar.gz"
+  version "1.8.6"
+  sha256 "565da62a9909036f36302c0ce459ff615c739ea95269dd6bd9f97813bffa5fbc"
   license "MIT"
   head "https://github.com/nitaiaharoni1/jira-cli.git", branch: "main"
 
@@ -30,11 +30,13 @@ class Jira < Formula
       2. Configure your Jira instance
       3. Then use: jira help
 
-      New features in v1.8.5:
-      - Fix list and move command build errors
+      New features in v1.8.6:
+      - Fix all remaining build errors (unused imports, function signatures)
+      - Update tests to match new API (query vs username)
+      - All compilation errors resolved, all tests passing
       
-      Previous fixes (v1.8.4):
-      - Fix final build errors (function signatures, type fields)
+      Previous fixes (v1.8.5):
+      - Fix list and move command build errors
       
       Previous fixes (v1.8.3):
       - Fix additional build errors (BoolVar type, unused imports)
