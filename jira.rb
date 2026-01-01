@@ -3,11 +3,11 @@
 # Tap: nitaiaharoni1
 
 class Jira < Formula
-  desc "Enhanced Jira CLI with attachments, comments, worklogs, history, and unwatch operations"
+  desc "Enhanced Jira CLI with statistics, bulk operations, attachments, comments, worklogs, and more"
   homepage "https://github.com/nitaiaharoni1/jira-cli"
-  url "https://github.com/nitaiaharoni1/jira-cli/archive/refs/tags/v1.7.2.tar.gz"
-  version "1.7.2"
-  sha256 "8c68cfd268b02aa66abfc1d22b76ac93976ac73ac8ffa8f7f5460006525794ad"
+  url "https://github.com/nitaiaharoni1/jira-cli/archive/refs/tags/v1.8.0.tar.gz"
+  version "1.8.0"
+  sha256 "bef47b6085345a1f6772b24189a783aeb81849cd6d45967bdf725f64805e2127"
   license "MIT"
   head "https://github.com/nitaiaharoni1/jira-cli.git", branch: "main"
 
@@ -30,14 +30,20 @@ class Jira < Formula
       2. Configure your Jira instance
       3. Then use: jira help
 
-      New features:
+      New features in v1.8.0:
+      - Statistics and reporting (sprint, velocity, worklog, assigned)
+      - Enhanced bulk operations (assign, move, watch, unwatch, comment, label)
+      - Flexible output formats (json, csv, keys, table)
+      - 'jira my' shortcut for assigned issues
+      - Label management commands
+      - Improved error handling and usability
+      
+      Previous features:
       - Attachments management (upload, list, download, delete)
       - Comment management (list, edit, delete)
       - Worklog management (list, update, delete)
       - Issue history/changelog
       - Unwatch operations
-      - Bulk operations (assign, move)
-      - Fixed original estimate updates (v1.7.2)
     EOS
   end
 end
