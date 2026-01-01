@@ -5,9 +5,9 @@
 class Jira < Formula
   desc "Enhanced Jira CLI with statistics, bulk operations, attachments, comments, worklogs, and more"
   homepage "https://github.com/nitaiaharoni1/jira-cli"
-  url "https://github.com/nitaiaharoni1/jira-cli/archive/refs/tags/v1.8.0.tar.gz"
-  version "1.8.0"
-  sha256 "bef47b6085345a1f6772b24189a783aeb81849cd6d45967bdf725f64805e2127"
+  url "https://github.com/nitaiaharoni1/jira-cli/archive/refs/tags/v1.8.1.tar.gz"
+  version "1.8.1"
+  sha256 "c845eb3f2045840e23f73f9ae7b505ce57c9d6914e1bb9bde9092ba56163602d"
   license "MIT"
   head "https://github.com/nitaiaharoni1/jira-cli.git", branch: "main"
 
@@ -30,7 +30,10 @@ class Jira < Formula
       2. Configure your Jira instance
       3. Then use: jira help
 
-      New features in v1.8.0:
+      New features in v1.8.1:
+      - Add --sprint-ids flag to extract sprint IDs without requiring jq
+      
+      Previous features (v1.8.0):
       - Statistics and reporting (sprint, velocity, worklog, assigned)
       - Enhanced bulk operations (assign, move, watch, unwatch, comment, label)
       - Flexible output formats (json, csv, keys, table)
