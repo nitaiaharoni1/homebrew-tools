@@ -15,14 +15,14 @@ class Slack < Formula
   depends_on "python3"
 
   def install
-    bin.install "slack-cli.sh" => "slack-chat"
+    bin.install "slack-cli.sh" => "slack"
     # Make sure the script is executable
-    chmod 0755, bin/"slack-chat"
+    chmod 0755, bin/"slack"
   end
 
   test do
     # Test that the script exists and is executable
-    assert_match "Slack CLI", shell_output("#{bin}/slack-chat help 2>&1", 1)
+    assert_match "Slack CLI", shell_output("#{bin}/slack help 2>&1", 1)
   end
 
   def caveats
@@ -30,18 +30,19 @@ class Slack < Formula
       Slack CLI has been installed!
 
       To get started:
-      1. Run setup: slack-chat init
+      1. Run setup: slack init
 
-      The 'slack-chat init' command will guide you through:
+      The 'slack init' command will guide you through:
       - Getting a Slack token
       - Storing it securely
       - Testing the connection
 
-      Then use: slack-chat help
+      Then use: slack help
 
-      Note: This installs as 'slack-chat' to coexist with official Slack CLI.
+      Note: This replaces the official Slack CLI with your custom slack-cli.
       No need to source in your shell config - it works as a standalone command!
     EOS
   end
 end
+
 
