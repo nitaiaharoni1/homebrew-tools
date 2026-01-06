@@ -5,9 +5,9 @@
 class GoogleCalendar < Formula
   desc "Command-line interface for Google Calendar"
   homepage "https://github.com/nitaiaharoni1/google-calendar-cli"
-  url "https://github.com/nitaiaharoni1/google-calendar-cli/archive/refs/tags/v1.3.1.tar.gz"
-  version "1.3.1"
-  sha256 "db0204ba5dda0c523b7965574d3f758db4103e44a1187289f1977bb740546caf"
+  url "https://github.com/nitaiaharoni1/google-calendar-cli/archive/refs/tags/v1.3.2.tar.gz"
+  version "1.3.2"
+  sha256 "36e730073a42185ea82fdd4df2ee00caf76cb5fec6e64aac8da168040de5f13b"
   license "MIT"
   head "https://github.com/nitaiaharoni1/google-calendar-cli.git", branch: "main"
 
