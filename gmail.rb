@@ -5,9 +5,9 @@
 class Gmail < Formula
   desc "Command-line interface for Gmail"
   homepage "https://github.com/nitaiaharoni1/gmail-cli"
-  url "https://github.com/nitaiaharoni1/gmail-cli/archive/refs/tags/v1.2.2.tar.gz"
-  version "1.2.2"
-  sha256 "d50062c5cdf9872aae5f7241c83c12b165c20d1c75a1555ae74b62c2a4ec253c"
+  url "https://github.com/nitaiaharoni1/gmail-cli/archive/refs/tags/v1.3.0.tar.gz"
+  version "1.3.0"
+  sha256 "ab193102a6894b9501c9a2c0721a319e549422c3d51dca1c00a57873c0ff3235"
   license "MIT"
   head "https://github.com/nitaiaharoni1/gmail-cli.git", branch: "main"
 
