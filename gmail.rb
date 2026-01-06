@@ -7,7 +7,7 @@ class Gmail < Formula
   homepage "https://github.com/nitaiaharoni1/gmail-cli"
   url "https://github.com/nitaiaharoni1/gmail-cli/archive/refs/tags/v1.0.6.tar.gz"
   version "1.0.6"
-  sha256 "b7eb22edaf246006983f2641f0927d75098e04346749b832d84cb461fb2bf7d6"
+  sha256 "d8f270d1f8887eb388293995ccc3c15e6147b521f1f8aefeede77b35008db89a"
   license "MIT"
   head "https://github.com/nitaiaharoni1/gmail-cli.git", branch: "main"
 
