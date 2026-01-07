@@ -44,6 +44,14 @@ brew install notion
 
 Powerful command-line interface for Notion built with pure bash. See [notion-cli](https://github.com/nitaiaharoni1/notion-cli) for more information.
 
+### Unleash CLI
+
+```bash
+brew install unleash-cli
+```
+
+Comprehensive CLI tool for managing Unleash Cloud feature flags. See [unleash-cli](https://github.com/nitaiaharoni1/unleash-cli) for more information.
+
 ## Usage
 
 After installation:
@@ -64,5 +72,9 @@ slack-chat help
 # Notion CLI
 notion init
 notion help
+
+# Unleash CLI
+unleash init
+unleash --help
 ```
 
