@@ -2,8 +2,8 @@
 class UnleashCli < Formula
   desc "Comprehensive CLI tool for managing Unleash Cloud feature flags"
   homepage "https://github.com/nitaiaharoni1/unleash-cli"
-  url "https://github.com/nitaiaharoni1/unleash-cli/archive/refs/tags/v0.1.1.tar.gz"
-  sha256 "60f67a298834363903137b9271f536482753c204e2666f7983c8c0de3a0a859d"
+  url "https://github.com/nitaiaharoni1/unleash-cli/archive/refs/tags/v0.1.2.tar.gz"
+  sha256 "771dbaba9c458f1c07e015ea667304b0eb4cc1a514fe98ff88919f7ebd99589a"
   license "MIT"
 
   depends_on "python@3.11"
