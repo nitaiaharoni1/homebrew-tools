@@ -13,15 +13,18 @@ class WebscraperCli < Formula
   depends_on "python@3.11"
 
   def install
-    # Install Python dependencies
-    system "pip3", "install", "--upgrade", "pip", "setuptools", "wheel"
-    system "pip3", "install", "-r", "requirements.txt"
-    
-    # Install Playwright browsers
-    system "python3", "-m", "playwright", "install", "chromium"
-    
-    # Install all Python modules and CLI script to libexec
-    libexec.install Dir["*"]
+    # The tarball extracts to webscraper-cli-1.0.0/, change to that directory
+    cd "webscraper-cli-1.0.0" do
+      # Install Python dependencies
+      system "pip3", "install", "--upgrade", "pip", "setuptools", "wheel"
+      system "pip3", "install", "-r", "requirements.txt"
+      
+      # Install Playwright browsers
+      system "python3", "-m", "playwright", "install", "chromium"
+      
+      # Install all Python modules and CLI script to libexec
+      libexec.install Dir["*"]
+    end
     
     # Create wrapper script that sets PYTHONPATH correctly
     (bin/"webscraper").write <<~PYTHON
@@ -39,7 +42,12 @@ class WebscraperCli < Formula
       os.chdir(libexec_path)
       
       # Execute cli.py directly
-      exec(open(os.path.join(libexec_path, "cli.py")).read())
+      cli_path = os.path.join(libexec_path, "cli.py")
+      if os.path.exists(cli_path):
+          exec(open(cli_path).read())
+      else:
+          print(f"Error: cli.py not found at {cli_path}", file=sys.stderr)
+          sys.exit(1)
     PYTHON
     chmod 0755, bin/"webscraper"
   end
