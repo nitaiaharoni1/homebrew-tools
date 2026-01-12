@@ -20,7 +20,7 @@ class WebscraperCli < Formula
     # Install Playwright browsers
     system "python3", "-m", "playwright", "install", "chromium"
     
-    # Install all Python modules and CLI script
+    # Install all Python modules and CLI script to libexec
     libexec.install Dir["*"]
     
     # Create wrapper script that sets PYTHONPATH correctly
@@ -29,14 +29,19 @@ class WebscraperCli < Formula
       import sys
       import os
       
-      # Add libexec to Python path
+      # Add libexec to Python path so imports work
       libexec_path = os.path.join(os.path.dirname(__file__), "..", "libexec")
       libexec_path = os.path.abspath(libexec_path)
-      sys.path.insert(0, libexec_path)
+      if libexec_path not in sys.path:
+          sys.path.insert(0, libexec_path)
+      
+      # Change to libexec directory so relative imports work
+      os.chdir(libexec_path)
       
       # Import and run CLI
-      from cli import app
-      app()
+      import cli
+      if __name__ == "__main__":
+          cli.app()
     PYTHON
     chmod 0755, bin/"webscraper"
   end
