@@ -27,7 +27,8 @@ class WebscraperCli < Formula
     end
     
     # Create wrapper script that sets PYTHONPATH correctly
-    (bin/"webscraper").write <<~PYTHON
+    wrapper = bin/"webscraper"
+    wrapper.write <<~PYTHON
       #!/usr/bin/env python3
       import sys
       import os
@@ -49,7 +50,7 @@ class WebscraperCli < Formula
           print(f"Error: cli.py not found at {cli_path}", file=sys.stderr)
           sys.exit(1)
     PYTHON
-    chmod 0755, bin/"webscraper"
+    wrapper.chmod 0755
   end
 
   test do
