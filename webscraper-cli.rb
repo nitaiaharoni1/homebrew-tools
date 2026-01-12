@@ -20,8 +20,17 @@ class WebscraperCli < Formula
     # Install Playwright browsers
     system "python3", "-m", "playwright", "install", "chromium"
     
-    # Install CLI script
-    bin.install "cli.py" => "webscraper"
+    # Install all Python modules and CLI script
+    libexec.install Dir["*"]
+    
+    # Create wrapper script that sets PYTHONPATH
+    bin.install_symlink libexec/"cli.py" => "webscraper"
+    inreplace bin/"webscraper", "#!/usr/bin/env python3", <<~PYTHON
+      #!/usr/bin/env python3
+      import sys
+      import os
+      sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "libexec"))
+    PYTHON
     chmod 0755, bin/"webscraper"
   end
 
