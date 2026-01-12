@@ -14,13 +14,14 @@ class WebscraperCli < Formula
 
   def install
     # Find the extracted directory (buildpath might be parent directory)
-    extracted_dir = if Dir.exist?(buildpath/"webscraper-cli-1.0.0")
-      buildpath/"webscraper-cli-1.0.0"
+    subdir = buildpath/"webscraper-cli-1.0.0"
+    extracted_dir = if subdir.exist?
+      subdir
     else
       buildpath
     end
     
-    cd extracted_dir do
+    cd extracted_dir.to_s do
       # Install Python dependencies
       system "pip3", "install", "--upgrade", "pip", "setuptools", "wheel"
       system "pip3", "install", "-r", "requirements.txt"
