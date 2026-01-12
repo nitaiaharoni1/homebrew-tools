@@ -38,10 +38,8 @@ class WebscraperCli < Formula
       # Change to libexec directory so relative imports work
       os.chdir(libexec_path)
       
-      # Import and run CLI
-      import cli
-      if __name__ == "__main__":
-          cli.app()
+      # Execute cli.py directly
+      exec(open(os.path.join(libexec_path, "cli.py")).read())
     PYTHON
     chmod 0755, bin/"webscraper"
   end
