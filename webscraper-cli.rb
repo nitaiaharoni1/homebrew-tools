@@ -23,13 +23,20 @@ class WebscraperCli < Formula
     # Install all Python modules and CLI script
     libexec.install Dir["*"]
     
-    # Create wrapper script that sets PYTHONPATH
-    bin.install_symlink libexec/"cli.py" => "webscraper"
-    inreplace bin/"webscraper", "#!/usr/bin/env python3", <<~PYTHON
+    # Create wrapper script that sets PYTHONPATH correctly
+    (bin/"webscraper").write <<~PYTHON
       #!/usr/bin/env python3
       import sys
       import os
-      sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "libexec"))
+      
+      # Add libexec to Python path
+      libexec_path = os.path.join(os.path.dirname(__file__), "..", "libexec")
+      libexec_path = os.path.abspath(libexec_path)
+      sys.path.insert(0, libexec_path)
+      
+      # Import and run CLI
+      from cli import app
+      app()
     PYTHON
     chmod 0755, bin/"webscraper"
   end
