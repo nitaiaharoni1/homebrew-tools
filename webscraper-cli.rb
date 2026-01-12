@@ -13,16 +13,18 @@ class WebscraperCli < Formula
   depends_on "python@3.11"
 
   def install
-    # Homebrew extracts to buildpath, which is the extracted directory
-    # Install Python dependencies
-    system "pip3", "install", "--upgrade", "pip", "setuptools", "wheel"
-    system "pip3", "install", "-r", "requirements.txt"
-    
-    # Install Playwright browsers
-    system "python3", "-m", "playwright", "install", "chromium"
-    
-    # Install all Python modules and CLI script to libexec
-    libexec.install Dir["*"]
+    # Homebrew extracts to buildpath, change to that directory
+    cd buildpath do
+      # Install Python dependencies
+      system "pip3", "install", "--upgrade", "pip", "setuptools", "wheel"
+      system "pip3", "install", "-r", "requirements.txt"
+      
+      # Install Playwright browsers
+      system "python3", "-m", "playwright", "install", "chromium"
+      
+      # Install all Python modules and CLI script to libexec
+      libexec.install Dir["*"]
+    end
     
     # Create wrapper script that sets PYTHONPATH correctly
     wrapper = bin/"webscraper"
