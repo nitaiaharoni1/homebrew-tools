@@ -13,8 +13,9 @@ class WebscraperCli < Formula
   depends_on "python@3.11"
 
   def install
-    # The tarball extracts to webscraper-cli-1.0.0/, change to that directory
-    cd "webscraper-cli-1.0.0" do
+    # Find the extracted directory (Homebrew extracts tarballs)
+    extracted_dir = Dir.glob("webscraper-cli-*").first
+    cd extracted_dir do
       # Install Python dependencies
       system "pip3", "install", "--upgrade", "pip", "setuptools", "wheel"
       system "pip3", "install", "-r", "requirements.txt"
