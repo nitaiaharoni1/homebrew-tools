@@ -13,8 +13,10 @@ class WebscraperCli < Formula
   depends_on "python@3.11"
 
   def install
-    # Homebrew extracts to buildpath, change to that directory
-    cd buildpath do
+    # Find the extracted directory (buildpath might be parent directory)
+    extracted_dir = buildpath.directory?("webscraper-cli-1.0.0") ? buildpath/"webscraper-cli-1.0.0" : buildpath
+    
+    cd extracted_dir do
       # Install Python dependencies
       system "pip3", "install", "--upgrade", "pip", "setuptools", "wheel"
       system "pip3", "install", "-r", "requirements.txt"
