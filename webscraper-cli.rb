@@ -5,8 +5,8 @@
 class WebscraperCli < Formula
   desc "Powerful CLI tool for website scraping, automation, and crawling using Playwright"
   homepage "https://github.com/nitaiaharoni1/webscraper-cli"
-  url "https://github.com/nitaiaharoni1/webscraper-cli/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "fd72ffbf695686e902b8d653cc7a22a95d2ba54266231d3045c28341b4f39bf4"
+  url "https://github.com/nitaiaharoni1/webscraper-cli/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "bdd0ed6473c15c11a6d80ebffbc1f2ae35f3bf4edd1a8f9e459d3d7864e6ccf3"
   license "MIT"
   head "https://github.com/nitaiaharoni1/webscraper-cli.git", branch: "main"
 
@@ -14,7 +14,7 @@ class WebscraperCli < Formula
 
   def install
     # Find the extracted directory (buildpath might be parent directory)
-    subdir = buildpath/"webscraper-cli-1.0.0"
+    subdir = buildpath/"webscraper-cli-1.1.0"
     extracted_dir = if subdir.exist?
       subdir
     else
