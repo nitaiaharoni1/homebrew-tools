@@ -40,8 +40,11 @@ class WebscraperCli < Formula
       import sys
       import os
       
+      # Resolve symlinks to get the real path
+      real_path = os.path.realpath(__file__)
+      
       # Add libexec to Python path so imports work
-      libexec_path = os.path.join(os.path.dirname(__file__), "..", "libexec")
+      libexec_path = os.path.join(os.path.dirname(real_path), "..", "libexec")
       libexec_path = os.path.abspath(libexec_path)
       if libexec_path not in sys.path:
           sys.path.insert(0, libexec_path)
