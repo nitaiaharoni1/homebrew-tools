@@ -7,7 +7,7 @@ class GoogleCalendar < Formula
   homepage "https://github.com/nitaiaharoni1/google-calendar-cli"
   url "https://github.com/nitaiaharoni1/google-calendar-cli/archive/refs/tags/v1.6.0.tar.gz"
   version "1.6.0"
-  sha256 "0bec9b838f7607d477ae440ac645a7ab85b192917bfb4b7b642034761f8f145b"
+  sha256 "d63e7fc3c3e450f664535da7c41ab9564321a75db46c032d18d9a1c5d493e4b4"
   license "MIT"
   head "https://github.com/nitaiaharoni1/google-calendar-cli.git", branch: "main"
 
