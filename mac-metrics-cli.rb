@@ -5,9 +5,9 @@
 class MacMetricsCli < Formula
   desc "Monitor your Mac's performance metrics over time with per-process attribution"
   homepage "https://github.com/nitaiaharoni1/mac-metrics-cli"
-  url "https://github.com/nitaiaharoni1/mac-metrics-cli/archive/refs/tags/v1.0.1.tar.gz"
-  version "1.0.1"
-  sha256 "2b7f25a8a8f3f29afcda778a121b908c336c44940115751d1a5e688574893e0d"
+  url "https://github.com/nitaiaharoni1/mac-metrics-cli/archive/refs/tags/v1.0.2.tar.gz"
+  version "1.0.2"
+  sha256 "bee81d65c6f56f675c570583f6015e8cbd80c9922409d2da6f3d0103b864ae43"
   license "MIT"
   head "https://github.com/nitaiaharoni1/mac-metrics-cli.git", branch: "main"
 
@@ -22,7 +22,6 @@ class MacMetricsCli < Formula
 
   test do
     system "#{bin}/mac-monitor", "--help" || true
-    system "#{bin}/mac-analyze", "--help" || false
   end
 
   def caveats
@@ -31,13 +30,14 @@ class MacMetricsCli < Formula
 
       Quick Start:
       1. Run status check:
-         mac-monitor-status
+         mac-monitor status
 
       2. Start monitoring (one-time):
          mac-monitor
 
       3. Enable automatic monitoring on startup:
          mac-monitor install-agent
+         mac-monitor start
 
       4. View your metrics:
          mac-analyze summary
@@ -50,7 +50,7 @@ class MacMetricsCli < Formula
 
       Automatic cleanup is configured (30-day retention, runs Sundays 3AM)
 
-      For more information: mac-analyze help
+      For more information: mac-monitor help
     EOS
   end
 end
