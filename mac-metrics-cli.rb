@@ -2,9 +2,9 @@
 class MacMetricsCli < Formula
   desc "Monitor your Mac's performance metrics over time with per-process attribution"
   homepage "https://github.com/nitaiaharoni1/mac-metrics-cli"
-  url "https://github.com/nitaiaharoni1/mac-metrics-cli/archive/refs/tags/v1.0.3.tar.gz"
-  version "1.0.3"
-  sha256 "c79b6ef5b0e9cc0e02adbd1660b6969068854b5cb56c6ce60cd0cd747e954752"
+  url "https://github.com/nitaiaharoni1/mac-metrics-cli/archive/refs/tags/v1.0.4.tar.gz"
+  version "1.0.4"
+  sha256 "5f289208d2dd1cfaaccd216b46f3ba8760afbe7ffed1fd54319c193f818408d7"
   license "MIT"
 
   def install
@@ -21,9 +21,9 @@ class MacMetricsCli < Formula
       Quick Start:
         mac-monitor install-agent  # Set up auto-monitoring
         mac-monitor start          # Start monitoring
-        mac-monitor status         # Check status
-        mac-analyze summary        # View metrics
+        mac-analyze health         # Check system health
         mac-analyze offenders      # Find resource hogs
+        mac-analyze compare 30     # Compare memory changes
 
       Data: ~/logs/mac-metrics/
     EOS
