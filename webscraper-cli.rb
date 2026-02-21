@@ -5,8 +5,8 @@
 class WebscraperCli < Formula
   desc "Powerful CLI tool for website scraping, automation, and crawling using Playwright"
   homepage "https://github.com/nitaiaharoni1/webscraper-cli"
-  url "https://github.com/nitaiaharoni1/webscraper-cli/archive/refs/tags/v2.0.0.tar.gz"
-  sha256 "6ddce4cfa713c7dd6df5b76a846f61b9620610855f15814696258bae590db70e"
+  url "https://github.com/nitaiaharoni1/webscraper-cli/archive/refs/tags/v2.0.1.tar.gz"
+  sha256 "7c832a2b6eca884f1363cf81b256d390950b198bbf46f76bb97ff3824709c4ec"
   license "MIT"
   head "https://github.com/nitaiaharoni1/webscraper-cli.git", branch: "main"
 
@@ -14,7 +14,7 @@ class WebscraperCli < Formula
 
   def install
     # Find the extracted directory (buildpath might be parent directory)
-    subdir = buildpath/"webscraper-cli-2.0.0"
+    subdir = buildpath/"webscraper-cli-2.0.1"
     extracted_dir = if subdir.exist?
       subdir
     else
@@ -77,12 +77,11 @@ class WebscraperCli < Formula
       2. Navigate to a page: webscraper goto "https://example.com"
       3. Extract data: webscraper text "h1" --url "https://example.com"
 
-      New in v2.0.0:
-      - 112 commands across 22 groups
-      - Proxy support: webscraper --proxy "http://host:port" goto "https://example.com"
-      - Custom User-Agent: webscraper --user-agent "MyBot/1.0" text "h1" --url "https://example.com"
-      - Clean JSON error output with suggestions
-      - Fewer dependencies, faster install
+      New in v2.0.1:
+      - --wait-for <selector> on extract text/links/html/strip/markdown
+      - networkidle gracefully falls back to load for SPAs with background polling
+      - Session persistence: --session-id state saved across CLI invocations
+      - crawl site default concurrency 1 (single browser, slot-based pool)
 
       See README.md for full documentation:
       https://github.com/nitaiaharoni1/webscraper-cli
