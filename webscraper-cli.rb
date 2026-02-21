@@ -5,8 +5,8 @@
 class WebscraperCli < Formula
   desc "Powerful CLI tool for website scraping, automation, and crawling using Playwright"
   homepage "https://github.com/nitaiaharoni1/webscraper-cli"
-  url "https://github.com/nitaiaharoni1/webscraper-cli/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "bdd0ed6473c15c11a6d80ebffbc1f2ae35f3bf4edd1a8f9e459d3d7864e6ccf3"
+  url "https://github.com/nitaiaharoni1/webscraper-cli/archive/refs/tags/v2.0.0.tar.gz"
+  sha256 "6ddce4cfa713c7dd6df5b76a846f61b9620610855f15814696258bae590db70e"
   license "MIT"
   head "https://github.com/nitaiaharoni1/webscraper-cli.git", branch: "main"
 
@@ -14,44 +14,44 @@ class WebscraperCli < Formula
 
   def install
     # Find the extracted directory (buildpath might be parent directory)
-    subdir = buildpath/"webscraper-cli-1.1.0"
+    subdir = buildpath/"webscraper-cli-2.0.0"
     extracted_dir = if subdir.exist?
       subdir
     else
       buildpath
     end
-    
+
     cd extracted_dir.to_s do
       # Install Python dependencies
       system "pip3", "install", "--upgrade", "pip", "setuptools", "wheel"
       system "pip3", "install", "-r", "requirements.txt"
-      
+
       # Install Playwright browsers
       system "python3", "-m", "playwright", "install", "chromium"
-      
+
       # Install all Python modules and CLI script to libexec
       libexec.install Dir["*"]
     end
-    
+
     # Create wrapper script that sets PYTHONPATH correctly
     wrapper = bin/"webscraper"
     wrapper.write <<~PYTHON
       #!/usr/bin/env python3
       import sys
       import os
-      
+
       # Resolve symlinks to get the real path
       real_path = os.path.realpath(__file__)
-      
+
       # Add libexec to Python path so imports work
       libexec_path = os.path.join(os.path.dirname(real_path), "..", "libexec")
       libexec_path = os.path.abspath(libexec_path)
       if libexec_path not in sys.path:
           sys.path.insert(0, libexec_path)
-      
+
       # Change to libexec directory so relative imports work
       os.chdir(libexec_path)
-      
+
       # Execute cli.py directly
       cli_path = os.path.join(libexec_path, "cli.py")
       if os.path.exists(cli_path):
@@ -77,12 +77,12 @@ class WebscraperCli < Formula
       2. Navigate to a page: webscraper goto "https://example.com"
       3. Extract data: webscraper text "h1" --url "https://example.com"
 
-      Features:
-      - 125+ commands for web automation
-      - Browser stays open by default (headed mode)
-      - Supports headless mode for automation
-      - Batch operations and parallel processing
-      - Video recording, screenshots, and more
+      New in v2.0.0:
+      - 112 commands across 22 groups
+      - Proxy support: webscraper --proxy "http://host:port" goto "https://example.com"
+      - Custom User-Agent: webscraper --user-agent "MyBot/1.0" text "h1" --url "https://example.com"
+      - Clean JSON error output with suggestions
+      - Fewer dependencies, faster install
 
       See README.md for full documentation:
       https://github.com/nitaiaharoni1/webscraper-cli
