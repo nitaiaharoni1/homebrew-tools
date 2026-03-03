@@ -5,16 +5,15 @@
 class McpReddit < Formula
   desc "Model Context Protocol (MCP) server for Reddit API integration with AI assistants"
   homepage "https://github.com/nitaiaharoni1/reddit-mcp"
-  url "https://github.com/nitaiaharoni1/reddit-mcp/archive/refs/tags/v1.1.8.tar.gz"
-  sha256 "2de819d5b822a765e0b6790c5ff9ace3926fb39eca229f14aa5b99bb746d04a2"
+  url "https://registry.npmjs.org/mcp-reddit/-/mcp-reddit-1.1.8.tgz"
+  sha256 "4368082df3488c0bda868e2e4e81a63a0a03c3e6fa5324287cc49df61b097aa8"
   license "MIT"
-  head "https://github.com/nitaiaharoni1/reddit-mcp.git", branch: "main"
 
   depends_on "node"
 
   def install
     system "npm", "install", *std_npm_args
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    bin.install_symlink libexec.glob("bin/*")
   end
 
   test do
