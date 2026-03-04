@@ -5,8 +5,8 @@
 class MetabaseCli < Formula
   desc "CLI for Metabase: start containers, export dashboards, configure from YAML"
   homepage "https://github.com/nitaiaharoni1/metabase-cli"
-  url "https://github.com/nitaiaharoni1/metabase-cli/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "a944d79b58a44142dd1522bbe1b2d8ae9ec1cddcd0863a73d9ead637fc527236"
+  url "https://github.com/nitaiaharoni1/metabase-cli/archive/refs/tags/v0.2.1.tar.gz"
+  sha256 "685726736871caf6fab170e2df7a2f6d3499def008b03ffabadcfe8f028312b7"
   license "MIT"
   head "https://github.com/nitaiaharoni1/metabase-cli.git", branch: "main"
 
@@ -14,7 +14,7 @@ class MetabaseCli < Formula
 
   def install
     # GitHub archive extracts to metabase-cli-<tag>/ subdir
-    extracted = (buildpath/"metabase-cli-0.1.0").directory? ? buildpath/"metabase-cli-0.1.0" : buildpath
+    extracted = (buildpath/"metabase-cli-0.2.1").directory? ? buildpath/"metabase-cli-0.2.1" : buildpath
     cd extracted.to_s do
       system "python3.11", "-m", "pip", "install", "--prefix=#{prefix}", "."
     end
@@ -33,6 +33,8 @@ class MetabaseCli < Formula
       2. Export dashboards: metabase-cli export -o metabase-dashboards --url http://localhost:30001
       3. Configure from YAML: metabase-cli configure -f metabase-dashboards/tesse.yaml --url http://localhost:30002
       4. Cleanup duplicates: metabase-cli cleanup-duplicates --collection Tesse
+      5. Archive dashboard: metabase-cli archive "E-commerce Insights"
+      6. Archive sample cards: metabase-cli archive-cards --database-id 1
 
       Credentials: ~/.metabase.env or .env.metabase (METABASE_EMAIL, METABASE_PASSWORD)
       See: https://github.com/nitaiaharoni1/metabase-cli
