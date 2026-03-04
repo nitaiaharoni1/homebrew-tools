@@ -58,7 +58,7 @@ Comprehensive CLI tool for managing Unleash Cloud feature flags. See [unleash-cl
 brew install metabase-cli
 ```
 
-CLI for Metabase: start containers, export dashboards to JSON. See [metabase-cli](https://github.com/nitaiaharoni1/metabase-cli) for more information.
+CLI for Metabase: start containers, export dashboards, configure from YAML. See [metabase-cli](https://github.com/nitaiaharoni1/metabase-cli) for more information.
 
 ## Usage
 
