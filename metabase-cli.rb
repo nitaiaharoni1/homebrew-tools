@@ -13,7 +13,11 @@ class MetabaseCli < Formula
   depends_on "python@3.11"
 
   def install
-    system "python3.11", "-m", "pip", "install", "--prefix=#{prefix}", "."
+    # GitHub archive extracts to metabase-cli-<tag>/ subdir
+    extracted = (buildpath/"metabase-cli-0.1.0").directory? ? buildpath/"metabase-cli-0.1.0" : buildpath
+    cd extracted.to_s do
+      system "python3.11", "-m", "pip", "install", "--prefix=#{prefix}", "."
+    end
   end
 
   test do
@@ -26,10 +30,7 @@ class MetabaseCli < Formula
 
       To get started:
       1. Start Metabase: metabase-cli start -c 'docker compose up -d --wait postgres metabase' -p 30001
-      2. Add database: metabase-cli database add -f metabase-dashboards/database.yaml --url http://localhost:30003
-      3. Configure from YAML: metabase-cli configure -f metabase-dashboards/opensketch.yaml --url http://localhost:30003
-      4. Export dashboards: metabase-cli export -o metabase-export --url http://localhost:30001
-      5. Export to YAML (dashboards as code): metabase-cli export --to-code -o metabase-dashboards/opensketch.yaml -d "Overview,Tool Usage,..." --url http://localhost:30003
+      2. Export dashboards: metabase-cli export -o metabase-dashboards --url http://localhost:30001
 
       Credentials: ~/.metabase.env or .env.metabase (METABASE_EMAIL, METABASE_PASSWORD)
       See: https://github.com/nitaiaharoni1/metabase-cli
