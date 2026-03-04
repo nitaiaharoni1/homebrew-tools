@@ -52,6 +52,14 @@ brew install unleash-cli
 
 Comprehensive CLI tool for managing Unleash Cloud feature flags. See [unleash-cli](https://github.com/nitaiaharoni1/unleash-cli) for more information.
 
+### Metabase CLI
+
+```bash
+brew install metabase-cli
+```
+
+CLI for Metabase: start containers, export dashboards to JSON. See [metabase-cli](https://github.com/nitaiaharoni1/metabase-cli) for more information.
+
 ## Usage
 
 After installation:
@@ -76,5 +84,9 @@ notion help
 # Unleash CLI
 unleash init
 unleash --help
+
+# Metabase CLI
+metabase-cli start -c 'docker compose up -d --wait postgres metabase' -p 30001
+metabase-cli export -o metabase-dashboards --url http://localhost:30001
 ```
 
