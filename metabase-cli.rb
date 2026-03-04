@@ -3,10 +3,10 @@
 # Tap: nitaiaharoni1/tools
 
 class MetabaseCli < Formula
-  desc "CLI for Metabase: start containers, export dashboards to JSON"
+  desc "CLI for Metabase: start containers, export dashboards, configure from YAML"
   homepage "https://github.com/nitaiaharoni1/metabase-cli"
-  url "https://github.com/nitaiaharoni1/metabase-cli/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed"
+  url "https://github.com/nitaiaharoni1/metabase-cli/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "1fdaabb67d36942a0bd8e20d4b45f48b9303895375f586b4c9b88b699c6440b8"
   license "MIT"
   head "https://github.com/nitaiaharoni1/metabase-cli.git", branch: "main"
 
@@ -17,7 +17,7 @@ class MetabaseCli < Formula
   end
 
   test do
-    assert_match "start", shell_output("#{bin}/metabase-cli --help 2>&1")
+    assert_match "configure", shell_output("#{bin}/metabase-cli --help 2>&1")
   end
 
   def caveats
@@ -26,7 +26,9 @@ class MetabaseCli < Formula
 
       To get started:
       1. Start Metabase: metabase-cli start -c 'docker compose up -d --wait postgres metabase' -p 30001
-      2. Export dashboards: metabase-cli export -o metabase-dashboards --url http://localhost:30001
+      2. Configure from YAML: metabase-cli configure -f metabase-dashboards/tesse.yaml --url http://localhost:30002
+      3. Export dashboards: metabase-cli export -o metabase-dashboards --url http://localhost:30001
+      4. Cleanup duplicates: metabase-cli cleanup-duplicates --collection Tesse
 
       Credentials: ~/.metabase.env or .env.metabase (METABASE_EMAIL, METABASE_PASSWORD)
       See: https://github.com/nitaiaharoni1/metabase-cli
