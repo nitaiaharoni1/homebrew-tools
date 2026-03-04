@@ -5,8 +5,8 @@
 class MetabaseCli < Formula
   desc "CLI for Metabase: start containers, export dashboards, configure from YAML"
   homepage "https://github.com/nitaiaharoni1/metabase-cli"
-  url "https://github.com/nitaiaharoni1/metabase-cli/archive/refs/tags/v0.2.2.tar.gz"
-  sha256 "8d6e7168622c19ca872428b0e7072b616ddea0923148b4223d861cdb4c2d18a9"
+  url "https://github.com/nitaiaharoni1/metabase-cli/archive/refs/tags/v0.2.3.tar.gz"
+  sha256 "01c70a139ff6c49a15fb76ab9d1a9c12ea8f26786bdc0e24ccddc72f9abda600"
   license "MIT"
   head "https://github.com/nitaiaharoni1/metabase-cli.git", branch: "main"
 
@@ -14,7 +14,7 @@ class MetabaseCli < Formula
 
   def install
     # GitHub archive extracts to metabase-cli-<tag>/ subdir
-    extracted = (buildpath/"metabase-cli-0.2.2").directory? ? buildpath/"metabase-cli-0.2.2" : buildpath
+    extracted = (buildpath/"metabase-cli-0.2.3").directory? ? buildpath/"metabase-cli-0.2.3" : buildpath
     cd extracted.to_s do
       system "python3.11", "-m", "pip", "install", "--prefix=#{prefix}", "."
     end
@@ -30,10 +30,11 @@ class MetabaseCli < Formula
 
       To get started:
       1. Start Metabase: metabase-cli start -c 'docker compose up -d --wait postgres metabase' -p 30001
-      2. Configure from YAML: metabase-cli configure -f metabase-dashboards/tesse.yaml --url http://localhost:30002
-      3. Export dashboards: metabase-cli export -o metabase-dashboards --url http://localhost:30001
+      2. Export dashboards: metabase-cli export -o metabase-dashboards --url http://localhost:30001
+      3. Configure from YAML: metabase-cli configure -f metabase-dashboards/tesse.yaml --url http://localhost:30002
       4. Cleanup duplicates: metabase-cli cleanup-duplicates --collection Tesse
       5. Archive dashboard: metabase-cli archive "E-commerce Insights"
+      6. Archive sample cards: metabase-cli archive-cards --database-id 1
 
       Credentials: ~/.metabase.env or .env.metabase (METABASE_EMAIL, METABASE_PASSWORD)
       See: https://github.com/nitaiaharoni1/metabase-cli
