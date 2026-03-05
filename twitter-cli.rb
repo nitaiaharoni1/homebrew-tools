@@ -5,8 +5,8 @@
 class TwitterCli < Formula
   desc "Command-line interface for the Twitter (X) API v2"
   homepage "https://github.com/nitaiaharoni1/twitter-cli"
-  url "https://github.com/nitaiaharoni1/twitter-cli/archive/refs/tags/v1.2.0.tar.gz"
-  sha256 "721222b60115181927b99d9394198ec0152961556b5f3736d822ed0710b64296"
+  url "https://github.com/nitaiaharoni1/twitter-cli/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "1a7d477be0e8a31f01b7ab1d8a1011036cbc90a9523216ceec07b956e6117051"
   license "MIT"
   head "https://github.com/nitaiaharoni1/twitter-cli.git", branch: "main"
 
@@ -32,7 +32,7 @@ class TwitterCli < Formula
   end
 
   test do
-    assert_match "1.2.0", shell_output("#{bin}/twitter-cli --version")
+    assert_match "1.3.0", shell_output("#{bin}/twitter-cli --version")
     assert_match "twitter-cli", shell_output("#{bin}/twitter-cli --help")
   end
 
@@ -50,6 +50,17 @@ class TwitterCli < Formula
              --api-secret    YOUR_API_SECRET \\
              --access-token  YOUR_ACCESS_TOKEN \\
              --access-secret YOUR_ACCESS_SECRET
+
+         To add a named profile (multi-account support):
+           twitter-cli auth set --profile work \\
+             --bearer-token  ... --api-key ... ...
+
+         Switch the active profile:
+           twitter-cli auth use work
+           twitter-cli auth list
+
+         Override per-command:
+           twitter-cli --profile work user whoami
 
       2. Verify credentials:
            twitter-cli auth show
@@ -78,6 +89,7 @@ class TwitterCli < Formula
         • 24h dedup cache — repeat reads within the same UTC day cost $0
         • Batch fetching  — tweet get-many sends up to 100 IDs per API call
         • Expansion cache — author users from timelines cached for free
+        • Profile-aware cache — switching accounts never returns stale user
 
       Get API keys at: https://developer.twitter.com/en/portal/dashboard
       Full docs: https://github.com/nitaiaharoni1/twitter-cli
