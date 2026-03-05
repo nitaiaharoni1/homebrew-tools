@@ -5,8 +5,8 @@
 class TwitterCli < Formula
   desc "Command-line interface for the Twitter (X) API v2"
   homepage "https://github.com/nitaiaharoni1/twitter-cli"
-  url "https://github.com/nitaiaharoni1/twitter-cli/archive/refs/tags/v1.1.4.tar.gz"
-  sha256 "cb13d5ba1bdcd942c18fa57ff1afbc86edf79e5136169ba5960d6b96eb024d09"
+  url "https://github.com/nitaiaharoni1/twitter-cli/archive/refs/tags/v1.1.5.tar.gz"
+  sha256 "7490687e48dadaa3f8a0d16dd3ffa96192c1cf6b54a7129fe4ef1339c94582b3"
   license "MIT"
   head "https://github.com/nitaiaharoni1/twitter-cli.git", branch: "main"
 
@@ -32,7 +32,7 @@ class TwitterCli < Formula
   end
 
   test do
-    assert_match "1.1.4", shell_output("#{bin}/twitter-cli --version")
+    assert_match "1.1.5", shell_output("#{bin}/twitter-cli --version")
     assert_match "twitter-cli", shell_output("#{bin}/twitter-cli --help")
   end
 
