@@ -5,8 +5,8 @@
 class TwitterCli < Formula
   desc "Command-line interface for the Twitter (X) API v2"
   homepage "https://github.com/nitaiaharoni1/twitter-cli"
-  url "https://github.com/nitaiaharoni1/twitter-cli/archive/refs/tags/v1.1.5.tar.gz"
-  sha256 "7490687e48dadaa3f8a0d16dd3ffa96192c1cf6b54a7129fe4ef1339c94582b3"
+  url "https://github.com/nitaiaharoni1/twitter-cli/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "721222b60115181927b99d9394198ec0152961556b5f3736d822ed0710b64296"
   license "MIT"
   head "https://github.com/nitaiaharoni1/twitter-cli.git", branch: "main"
 
@@ -32,7 +32,7 @@ class TwitterCli < Formula
   end
 
   test do
-    assert_match "1.1.5", shell_output("#{bin}/twitter-cli --version")
+    assert_match "1.2.0", shell_output("#{bin}/twitter-cli --version")
     assert_match "twitter-cli", shell_output("#{bin}/twitter-cli --help")
   end
 
@@ -67,6 +67,8 @@ class TwitterCli < Formula
            twitter-cli post tweet "Hello from twitter-cli!"
            twitter-cli post like 20
            twitter-cli post retweet 20
+           twitter-cli post follow elonmusk
+           twitter-cli post bookmark 20
 
       5. Track usage & costs:
            twitter-cli usage stats
