@@ -5,8 +5,8 @@
 class WebscraperCli < Formula
   desc "Powerful CLI tool for website scraping, automation, and crawling using Playwright"
   homepage "https://github.com/nitaiaharoni1/webscraper-cli"
-  url "https://github.com/nitaiaharoni1/webscraper-cli/archive/refs/tags/v2.0.2.tar.gz"
-  sha256 "9485e5b1b93243927b1ea43674ffdbff085da16dd53da0a1c47baadf7183386a"
+  url "https://github.com/nitaiaharoni1/webscraper-cli/archive/refs/tags/v2.0.3.tar.gz"
+  sha256 "396d2b91f9cd65a59e71a6e4c54891cbb9310b69b2a1ef7436878c1d3f704f1c"
   license "MIT"
   head "https://github.com/nitaiaharoni1/webscraper-cli.git", branch: "main"
 
@@ -14,7 +14,7 @@ class WebscraperCli < Formula
 
   def install
     # Find the extracted directory (buildpath might be parent directory)
-    subdir = buildpath/"webscraper-cli-2.0.2"
+    subdir = buildpath/"webscraper-cli-2.0.3"
     extracted_dir = if subdir.exist?
       subdir
     else
@@ -77,11 +77,8 @@ class WebscraperCli < Formula
       2. Navigate to a page: webscraper goto "https://example.com"
       3. Extract data: webscraper text "h1" --url "https://example.com"
 
-      New in v2.0.2:
-      - --wait-for-text <text> on extract text/links/html/strip/markdown (wait for SPA content)
-      - --settle-time <ms> on extract and crawl commands (pause after load for SPA routing)
-      - crawl site: --wait-for, --wait-for-text, --settle-time for JS-rendered nav discovery
-      - extract smart: uses load instead of networkidle for better SPA compatibility
+      New in v2.0.3:
+      - Fix: browser window no longer reopens on every command (reuses existing Chrome via CDP)
 
       See README.md for full documentation:
       https://github.com/nitaiaharoni1/webscraper-cli
