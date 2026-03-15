@@ -5,8 +5,8 @@
 class WebscraperCli < Formula
   desc "Powerful CLI tool for website scraping, automation, and crawling using Playwright"
   homepage "https://github.com/nitaiaharoni1/webscraper-cli"
-  url "https://github.com/nitaiaharoni1/webscraper-cli/archive/refs/tags/v2.1.0.tar.gz"
-  sha256 "82f4b2477554245e686dcd4dc0d94f1890478528afc58c7f502f2bd74f51862d"
+  url "https://github.com/nitaiaharoni1/webscraper-cli/archive/refs/tags/v2.2.0.tar.gz"
+  sha256 "1caabbbc49ee98c46f61b76a353841668aaf74bbb786ea9a3e40ee542f95757b"
   license "MIT"
   head "https://github.com/nitaiaharoni1/webscraper-cli.git", branch: "main"
 
@@ -14,7 +14,7 @@ class WebscraperCli < Formula
 
   def install
     # Find the extracted directory (buildpath might be parent directory)
-    subdir = buildpath/"webscraper-cli-2.1.0"
+    subdir = buildpath/"webscraper-cli-2.2.0"
     extracted_dir = if subdir.exist?
       subdir
     else
@@ -77,12 +77,11 @@ class WebscraperCli < Formula
       2. Navigate to a page: webscraper goto "https://example.com"
       3. Extract data: webscraper text "h1" --url "https://example.com"
 
-      New in v2.1.0:
-      - New: extract records — structured multi-field extraction from repeating elements
-      - New: recon — one-shot page reconnaissance (headings, forms, tables, SPA detection)
-      - New: interact click/type-text —  --by-text, --by-role, --by-label, --by-placeholder
-      - Improved: extract table — auto-detects tables, fallback chain, --all flag
-      - Improved: interact fill-form — label, aria-label, placeholder discovery
+      New in v2.2.0:
+      - New: extract smart-records — SPA-friendly extraction via accessibility tree
+      - New: interact click --focus-first for hidden buttons (e.g. Wikipedia search)
+      - Fix: headless session state consistency after logout/redirect
+      - Fix: --submit now waits networkidle before saving session state
 
       See README.md for full documentation:
       https://github.com/nitaiaharoni1/webscraper-cli
