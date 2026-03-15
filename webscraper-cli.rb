@@ -5,8 +5,8 @@
 class WebscraperCli < Formula
   desc "Powerful CLI tool for website scraping, automation, and crawling using Playwright"
   homepage "https://github.com/nitaiaharoni1/webscraper-cli"
-  url "https://github.com/nitaiaharoni1/webscraper-cli/archive/refs/tags/v2.2.0.tar.gz"
-  sha256 "1caabbbc49ee98c46f61b76a353841668aaf74bbb786ea9a3e40ee542f95757b"
+  url "https://github.com/nitaiaharoni1/webscraper-cli/archive/refs/tags/v2.3.0.tar.gz"
+  sha256 "99830cb38e3ddffa32dd81cfd7e74418695556497c7c96705c2fcb42d8ddd0ff"
   license "MIT"
   head "https://github.com/nitaiaharoni1/webscraper-cli.git", branch: "main"
 
@@ -14,7 +14,7 @@ class WebscraperCli < Formula
 
   def install
     # Find the extracted directory (buildpath might be parent directory)
-    subdir = buildpath/"webscraper-cli-2.2.0"
+    subdir = buildpath/"webscraper-cli-2.3.0"
     extracted_dir = if subdir.exist?
       subdir
     else
@@ -77,11 +77,13 @@ class WebscraperCli < Formula
       2. Navigate to a page: webscraper goto "https://example.com"
       3. Extract data: webscraper text "h1" --url "https://example.com"
 
-      New in v2.2.0:
-      - New: extract smart-records — SPA-friendly extraction via accessibility tree
-      - New: interact click --focus-first for hidden buttons (e.g. Wikipedia search)
-      - Fix: headless session state consistency after logout/redirect
-      - Fix: --submit now waits networkidle before saving session state
+      New in v2.3.0:
+      - Fix: smart-records language heuristic now detects bare generic/text nodes (GitHub trending)
+      - Fix: smart-records auto-detects generic containers for React SPAs (npmjs, etc.)
+      - Fix: smart-records --format now routes to csv/table/json output
+      - Fix: session persists correct URL after logout/redirect (wait_for_url logic)
+      - Fix: fill-form now supports radio/checkbox inputs via set_checked()
+      - Fix: --by-text click prefers interactive elements (links/buttons) over text containers
 
       See README.md for full documentation:
       https://github.com/nitaiaharoni1/webscraper-cli
