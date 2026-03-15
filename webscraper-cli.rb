@@ -5,8 +5,8 @@
 class WebscraperCli < Formula
   desc "Powerful CLI tool for website scraping, automation, and crawling using Playwright"
   homepage "https://github.com/nitaiaharoni1/webscraper-cli"
-  url "https://github.com/nitaiaharoni1/webscraper-cli/archive/refs/tags/v2.0.4.tar.gz"
-  sha256 "3bcb39cf1e9500e3b0fda02747799f338a53251488b117eabd8494cde07e0a18"
+  url "https://github.com/nitaiaharoni1/webscraper-cli/archive/refs/tags/v2.1.0.tar.gz"
+  sha256 "82f4b2477554245e686dcd4dc0d94f1890478528afc58c7f502f2bd74f51862d"
   license "MIT"
   head "https://github.com/nitaiaharoni1/webscraper-cli.git", branch: "main"
 
@@ -14,7 +14,7 @@ class WebscraperCli < Formula
 
   def install
     # Find the extracted directory (buildpath might be parent directory)
-    subdir = buildpath/"webscraper-cli-2.0.4"
+    subdir = buildpath/"webscraper-cli-2.1.0"
     extracted_dir = if subdir.exist?
       subdir
     else
@@ -77,11 +77,12 @@ class WebscraperCli < Formula
       2. Navigate to a page: webscraper goto "https://example.com"
       3. Extract data: webscraper text "h1" --url "https://example.com"
 
-      New in v2.0.4:
-      - Fix: extract forms now works on SPAs (--wait-for, --wait-for-text, --settle-time)
-      - Fix: form detection finds role="form" elements and orphan inputs (Reddit, React apps)
-      - Fix: networkidle timeouts no longer crash paginate, submit_form, wait idle
-      - New: interact click supports --wait-for and --settle-time for post-click waits
+      New in v2.1.0:
+      - New: extract records — structured multi-field extraction from repeating elements
+      - New: recon — one-shot page reconnaissance (headings, forms, tables, SPA detection)
+      - New: interact click/type-text —  --by-text, --by-role, --by-label, --by-placeholder
+      - Improved: extract table — auto-detects tables, fallback chain, --all flag
+      - Improved: interact fill-form — label, aria-label, placeholder discovery
 
       See README.md for full documentation:
       https://github.com/nitaiaharoni1/webscraper-cli
