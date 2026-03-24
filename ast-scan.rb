@@ -5,8 +5,8 @@
 class AstScan < Formula
   desc "AST-based codebase health scanner for Python, TypeScript, and Rust"
   homepage "https://github.com/nitaiaharoni1/ast-scan"
-  url "https://github.com/nitaiaharoni1/ast-scan/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "a801884b68993e715110f65f03f9d7838a6d75b72239661071bca1c769dc3410"
+  url "https://github.com/nitaiaharoni1/ast-scan/archive/refs/tags/v0.1.1.tar.gz"
+  sha256 "374a474a87b2d63988fa04a602027328cab37109d65ef623bb44c3df110f6aba"
   license "MIT"
   head "https://github.com/nitaiaharoni1/ast-scan.git", branch: "main"
 
@@ -14,7 +14,7 @@ class AstScan < Formula
 
   def install
     system "cargo", "build", "--manifest-path=rust/Cargo.toml", "--release"
-    bin.install "target/release/ast-scan"
+    bin.install "rust/target/release/ast-scan"
   end
 
   test do
@@ -31,7 +31,7 @@ class AstScan < Formula
         ast-scan <path> --typescript      # TypeScript / JS only
         ast-scan <path> --rust            # Rust only
         ast-scan <path> --json            # JSON output
-        ast-scan <path> --max-complexity 20 --max-depth 6  # threshold checks
+        ast-scan <path> --max-complexity 20 --max-nesting 6  # threshold checks
 
       Examples:
         ast-scan .                        # scan current directory
