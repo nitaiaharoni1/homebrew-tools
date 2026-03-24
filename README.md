@@ -60,6 +60,14 @@ brew install metabase-cli
 
 CLI for Metabase: start containers, export dashboards, configure from YAML. See [metabase-cli](https://github.com/nitaiaharoni1/metabase-cli) for more information.
 
+### ast-scan
+
+```bash
+brew install ast-scan
+```
+
+AST-based codebase health scanner for Python, TypeScript, and Rust. Reports cyclomatic complexity, import graphs, circular dependencies, dead exports, and more. See [ast-scan](https://github.com/nitaiaharoni1/ast-scan) for more information.
+
 ## Usage
 
 After installation:
@@ -88,5 +96,10 @@ unleash --help
 # Metabase CLI
 metabase-cli start -c 'docker compose up -d --wait postgres metabase' -p 30001
 metabase-cli export -o metabase-dashboards --url http://localhost:30001
+
+# ast-scan
+ast-scan .                        # auto-detect Python / TypeScript / Rust
+ast-scan src/ --typescript --json
+ast-scan . --rust --max-complexity 20
 ```
 
