@@ -14,7 +14,7 @@ class AstScan < Formula
 
   def install
     system "cargo", "build", "--manifest-path=rust/Cargo.toml", "--release"
-    bin.install "rust/target/release/ast-scan"
+    bin.install "target/release/ast-scan"
   end
 
   test do
