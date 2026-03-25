@@ -5,8 +5,8 @@
 class AstScan < Formula
   desc "AST-based codebase health scanner for Python, TypeScript, and Rust"
   homepage "https://github.com/nitaiaharoni1/ast-scan"
-  url "https://github.com/nitaiaharoni1/ast-scan/archive/refs/tags/v0.1.1.tar.gz"
-  sha256 "374a474a87b2d63988fa04a602027328cab37109d65ef623bb44c3df110f6aba"
+  url "https://github.com/nitaiaharoni1/ast-scan/archive/refs/tags/v0.1.2.tar.gz"
+  sha256 "dec433f559a3a9ae1c935f16d4fb0ffbf791f0815a6c3729ef44146b984c5f6a"
   license "MIT"
   head "https://github.com/nitaiaharoni1/ast-scan.git", branch: "main"
 
